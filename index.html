@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>안녕눈아들나는순자라개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <img src="./images/logo.png" alt="lettering" class="lettering-image" />
+
+    <div class="container">
+      <img src="./images/soonja.png" alt="overlay" class="soonja" />
+      <h1 class="soonja-text">눈아들 안녕? 나는 순자라개.<br />생일 파티에 초대된 것을 추카해.<br />눈아들은 어떤 장르를 죠아해?</h1>
+      <div class="button-container">
+        <button onclick="handleOpenRfModal()">로판물</button>
+        <button onclick="handleOpenModern()">현대물</button>
+      </div>
+    </div>
+
+    <!-- 로판 모달 창 -->
+    <div class="modal-overlay" id="rfModal">
+      <div class="modal">
+        <div class="modal-content"></div>
+        <img src="./images/rf-frame.png" alt="" class="rf-frame" />
+        <img src="./images/rf-model.png" alt="character" class="rf-model" />
+        <!-- <img src="https://t1.daumcdn.net/cafeattach/1QPl2/1a93e3ccd08c067666a8620b87407fed2870f375" alt="background" /> -->
+        <div class="rf-wrap">
+          <img src="./images/rf-invitation.png" alt="" class="rf-invitation" />
+          <img src="./images/rf-logo.png" alt="" class="rf-logo" />
+        </div>
+        <div class="letter-wrap">
+          <button class="close-btn letter-close-btn"></button>
+          <img src="./images/rf-letter.png" alt="" class="rf-letter" />
+        </div>
+        <button class="close-btn rf-close-btn"></button>
+      </div>
+    </div>
+
+    <!-- 현대 모달 창 -->
+    <div class="modal-overlay" id="modernModal">
+      <div class="modal">
+        <video src="https://jybirthday.b-cdn.net/mobile-short_low.mp4" class="mobile" loop playsinline></video>
+        <video src="https://jybirthday.b-cdn.net/pc-short_1.mp4" class="pc" loop muted playsinline></video>
+      </div>
+    </div>
+    <button class="close-btn modern-close-btn" onclick="handleCloseModern()"></button>
+
+    <!-- 노래 -->
+    <audio src="./source/rf.mp3" loop class="rf-music"></audio>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

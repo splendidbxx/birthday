@@ -1,0 +1,341 @@
+@mixin mo($max-width: 1024px) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dongle", serif;
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100dvh;
+  overflow: hidden;
+  background: url("https://i.pinimg.com/originals/7d/7c/79/7d7c79f57f2bf8fc2b43b9a5e5a2a96b.gif") center/cover no-repeat;
+  background-size: cover;
+
+  @include mo {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vh 0;
+  }
+}
+
+// 로고
+.lettering-image {
+  position: absolute;
+  left: 35%;
+  top: 10%;
+  width: 35%;
+  height: auto;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  @include mo {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: calc(250 / 375 * 100vw);
+    margin: 0 auto;
+    transform: translateX(0%);
+    max-width: 320px;
+    min-width: 220px;
+  }
+}
+// 순자 wrapper
+.container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  width: 20%;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 2;
+
+  @include mo {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 79%;
+    transform: none;
+    padding: 2.5rem 1rem 1rem;
+  }
+}
+
+.soonja {
+  position: absolute;
+  top: -83px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  z-index: 2;
+
+  @include mo {
+    top: -63px;
+    max-width: 161px;
+    min-width: 161px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #000;
+  line-height: 1.3;
+
+  @include mo {
+    font-size: 24px;
+    margin-bottom: 13px;
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  @include mo {
+    align-items: center;
+  }
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #fff;
+  background-color: #8448fe;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: "Dongle", serif;
+
+  @include mo {
+    width: 100%;
+  }
+}
+
+button:hover:not(.close-btn) {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+  transform: scale(1.05);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay {
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  // visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-overlay.open {
+  // visibility: visible;
+  // opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://cdn.gethypervisual.com/images/shopify/b140f93d-2b87-4f31-a90f-c9c66d2177cc/56c6_Full_Screen_Smoke__1_.gif") center/cover no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rf-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 105%;
+  height: 114%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("/images/rf-background.jpeg") center/cover no-repeat;
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.modal .rf-model {
+  position: absolute;
+  width: 38%;
+  // left: 2%;
+  left: 4%;
+  pointer-events: none;
+  bottom: -2px;
+  min-width: 588px;
+
+  @include mo {
+    min-width: 0;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+}
+.rf-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 8%;
+  width: 32%;
+
+  @include mo {
+    width: 100%;
+    top: 0;
+    transform: translateX(-50%);
+    right: auto;
+    left: 50%;
+    height: 100%;
+    bottom: 0;
+    justify-content: space-between;
+    padding: 25vw 10vw 10vw;
+  }
+}
+
+.rf-logo {
+  width: 100%;
+
+  @include mo {
+    width: 69%;
+    margin-bottom: 60px;
+  }
+}
+
+.rf-invitation {
+  width: 20vw;
+  cursor: pointer;
+
+  @include mo {
+    width: 30vw;
+  }
+}
+
+.letter-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 1005;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.rf-letter {
+  height: 80%;
+}
+
+.close-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1004;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 3px;
+    height: 100%;
+    background-color: white;
+    transform-origin: center;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(138deg);
+  }
+
+  @include mo {
+  }
+}
+
+#modernModal {
+  video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    &.pc {
+      @include mo {
+        visibility: hidden;
+      }
+    }
+
+    &.mobile {
+      visibility: hidden;
+      @include mo {
+        visibility: visible;
+      }
+    }
+  }
+}
